@@ -1,0 +1,38 @@
+website resmi : https://vuejs.org/
+
+
+cara instal via node js :
+1. npm create vue@latest
+2. identifikasi fitur dasar
+✔ Project name: … <your-project-name>
+✔ Add TypeScript? … No / Yes
+✔ Add JSX Support? … No / Yes
+✔ Add Vue Router for Single Page Application development? … No / Yes
+✔ Add Pinia for state management? … No / Yes
+✔ Add Vitest for Unit testing? … No / Yes
+✔ Add an End-to-End Testing Solution? … No / Cypress / Nightwatch / Playwright
+✔ Add ESLint for code quality? … No / Yes
+✔ Add Prettier for code formatting? … No / Yes
+✔ Add Vue DevTools 7 extension for debugging? (experimental) … No / Yes
+
+Project name (target directory):
+│  installation
+│
+◇  Select features to include in your project: (↑/↓ to navigate, space to select, a to toggle all, enter to confirm)
+│  ESLint (error prevention)
+│
+◇  Select experimental features to include in your project: (↑/↓ to navigate, space to select, a to toggle all, enter to confirm)
+│  none
+│
+◇  Skip all example code and start with a blank Vue project?
+│  No
+
+3.  Setelah proyek dibuat, ikuti petunjuk untuk menginstal dependensi dan memulai server pengembangan :
+$ cd <your-project-name>    (masuk ke folder)
+$ npm install               (melakukan installasi package)
+$ npm run dev               (menjalankan website)
+
+4. Saat Anda siap mengirimkan aplikasi Anda ke produksi, jalankan yang berikut ini:
+$ npm run build
+
+Ini akan membuat versi aplikasi Anda yang siap produksi di direktori proyek ./dist.
