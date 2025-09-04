@@ -1,0 +1,29 @@
+1. Menggunakan Vue dari CDN​
+Anda dapat menggunakan Vue langsung dari CDN melalui tag skrip:
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+Di sini kita menggunakan unpkg , tetapi Anda juga bisa menggunakan CDN apa pun yang menyediakan paket npm, 
+misalnya jsdelivr atau cdnjs . Tentu saja, Anda juga bisa mengunduh berkas ini dan menyediakannya sendiri.
+Saat menggunakan Vue dari CDN, tidak ada "langkah build" yang terlibat. Hal ini membuat pengaturan jauh lebih sederhana, dan cocok untuk meningkatkan HTML statis atau berintegrasi dengan kerangka kerja backend. 
+Namun, Anda tidak akan dapat menggunakan sintaks Komponen Berkas Tunggal (SFC).
+
+2. Menggunakan Build Global​
+Tautan di atas memuat versi global Vue, tempat semua API tingkat atas diekspos sebagai properti pada Vueobjek global. Berikut contoh lengkap penggunaan versi global:
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">{{ message }}</div>
+
+<script>
+  const { createApp, ref } = Vue
+
+  createApp({
+    setup() {
+      const message = ref('Hello vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>

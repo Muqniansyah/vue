@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>contoh directives</title>
+    <style>
+      div {
+        margin: 10px;
+        padding: 10px;
+        border: solid black 1px;
+        display: inline-block;
+      }
+
+      .pinkBG {
+        background-color: lightpink;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contoh 'v-bind'</h1>
+
+    <p>Peramban menemukan nama kelas di dalam instance Vue.</p>
+
+    <div id="app">
+      <p>
+        Semua elemen di dalam elemen div dengan id="app" dapat menggunakan data
+        dari instance Vue.
+      </p>
+      <div v-bind:class="vueClass">Elemen ini terikat ke kelas "pinkBG".</div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vue -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            vueClass: "pinkBG",
+          };
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>

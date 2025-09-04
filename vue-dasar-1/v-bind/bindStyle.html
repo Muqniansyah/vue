@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>v-bind font-size</title>
+    <style>
+      #app > div {
+        width: 200px;
+        padding: 20px;
+        border: dashed black 1px;
+        background-color: lightcoral;
+      }
+
+      #app2 > div {
+        width: 200px;
+        padding: 20px;
+        border: dashed black 1px;
+        background-color: lightcoral;
+      }
+
+      #app3 > div {
+        width: 200px;
+        padding: 20px;
+        border: dashed black 1px;
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>'v-bind' Contoh Font Size</h1>
+
+    <!-- Penataan gaya sebaris dengan Vue dilakukan dengan mengikat atribut gaya ke Vue dengan v-bind. -->
+    <!-- Sebagai nilai pada direktif v-bind, kita dapat menulis objek JavaScript dengan properti dan nilai CSS -->
+    <p>
+      Peramban menetapkan ukuran font berdasarkan nilai 'ukuran' dalam instance
+      Vue.
+    </p>
+
+    <!-- contoh satu -->
+    <div id="app">
+      <!-- Ukuran font bergantung pada properti data Vue 'size'. -->
+      <!-- artinya jadi kita mengikat attribut style lalu kita akan merubah font-size (property pada css) dan untuk nilai (atau nilai css) nya kita ambil dari instance vue yaitu pada property data vue size. -->
+      <div v-bind:style="{ fontSize: size }">teks satu. contoh satu</div>
+    </div>
+    <!-- akhir contoh satu -->
+
+    <!-- Kita juga dapat memisahkan nilai angka ukuran font dari satuan ukuran font jika kita mau, seperti ini : -->
+    <!-- contoh dua -->
+    <div id="app2">
+      <div v-bind:style="{ fontSize: ukuran + 'px'}">teks dua. contoh dua</div>
+    </div>
+    <!-- akhir contoh dua -->
+
+    <!-- Kita juga dapat menulis nama properti CSS dengan sintaksis CSS (kebab-case) dalam tanda hubung, tetapi tidak disarankan -->
+    <!-- contoh tiga -->
+    <div id="app3">
+      <div v-bind:style="{ 'font-size': uk + 'px'}">teks tiga. contoh tiga</div>
+    </div>
+    <!-- akhir contoh tiga -->
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vue -->
+    <script>
+      // instance 1
+      const app = Vue.createApp({
+        data() {
+          return {
+            // contoh satu merubah menjadi 28px
+            size: "28px",
+          };
+        },
+      });
+
+      app.mount("#app");
+
+      //   instance 2
+      const app2 = Vue.createApp({
+        data() {
+          return {
+            // contoh dua memisahkan nilai angka ukuran font dari satuan ukuran font
+            ukuran: "50",
+          };
+        },
+      });
+
+      app2.mount("#app2");
+
+      //   instance 3
+      const app3 = Vue.createApp({
+        data() {
+          return {
+            // contoh tiga menulis nama properti CSS dengan sintaksis CSS (kebab-case) dalam tanda hubung
+            uk: "12",
+          };
+        },
+      });
+
+      app3.mount("#app3");
+    </script>
+  </body>
+</html>

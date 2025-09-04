@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>v-bind background-color</title>
+    <style>
+      #app > div {
+        width: 200px;
+        padding: 20px;
+        border: dashed black 1px;
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>'v-bind' Contoh Background Color</h1>
+
+    <p>
+      Peramban mengatur warna latar belakang dengan 'hsl()' berdasarkan nilai
+      'bgVal' dalam instance Vue.
+    </p>
+    <p>Coba ubah nilai properti 'bgVal' dari apa pun antara 0 dan 360.</p>
+
+    <div id="app">
+      <!-- contoh satu -->
+      <div v-bind:style="{ backgroundColor: 'hsl('+bgVal + ',80%,80%)' }">
+        Perhatikan warna latar belakang pada tag div ini.
+      </div>
+      <!-- contoh dua : Warna latar belakang diatur dengan ekspresi kondisional JavaScript (ternary) tergantung pada apakah nilai properti data 'isImportant' adalah 'benar' atau 'salah' -->
+      <div
+        v-bind:style="{ backgroundColor: isImportant ? 'lightcoral' : 'lightgray' }"
+      >
+        Importance berdasarkan warna latar belakang
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vue -->
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            // contoh satu
+            bgVal: 180,
+            // contoh dua : true(merah), false(abu)
+            isImportant: true,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

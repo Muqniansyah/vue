@@ -1,28 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My first Vue page</title>
-    <style>
-      #app {
-        display: inline-block;
-        padding: 10px;
-        font-size: x-large;
-        background-color: lightgreen;
-      }
-    </style>
   </head>
   <body>
-    <h1>Vue Example</h1>
+    <!-- elemen HTML -->
+    <div id="app">
+      <!-- menggunakan interpolasi teks , sintaksis Vue dengan kurung kurawal ganda {{ }} sebagai tempat penampung data. -->
+      <!-- Peramban akan bertukar {{ message }} dengan teks yang disimpan dalam properti 'message' di dalam instansi Vue. -->
+      {{ message }}
+    </div>
 
-    <p>
-      The message is taken from 'data' inside the Vue instance by writing {{
-      message }} inside the div with id="app".
-    </p>
-
-    <div id="app">{{ message }}</div>
-
+    <!-- menghubungkan vue cdn -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+    <!-- instance vue : dapat berisi data dan metode dan hal lainnya, tetapi sekarang hanya berisi pesan -->
     <script>
       const app = Vue.createApp({
         data() {
@@ -32,6 +26,7 @@
         },
       });
 
+      // instance Vue kita terhubung ke <div id="app"> tag atau pada elemen HTML yang kita buat
       app.mount("#app");
     </script>
   </body>

@@ -1,0 +1,24 @@
+1. INTERPOLASI
+menggunakan interpolasi teks , sintaksis Vue dengan kurung kurawal ganda {{ }} sebagai tempat penampung data.
+
+2. DIRECTIVES VUE
+Direktif Vue adalah atribut HTML khusus dengan awalan v-yang memberikan tag HTML fungsionalitas tambahan.
+Direktif Vue terhubung ke instansi Vue untuk membuat antarmuka pengguna yang dinamis dan reaktif.
+Dengan Vue, membuat halaman responsif jauh lebih mudah dan membutuhkan lebih sedikit kode dibandingkan dengan metode JavaScript tradisional.
+
+berbagai directives vue :
+
+v-bind	: Menghubungkan atribut dalam tag HTML ke variabel data di dalam instansi Vue.
+v-if	: Membuat tag HTML berdasarkan suatu kondisi. Direktif v-else-ifdan v-elsedigunakan bersama dengan v-ifdirektif.
+v-show	: Menentukan apakah elemen HTML harus terlihat atau tidak tergantung pada suatu kondisi.
+v-for	: Membuat daftar tag berdasarkan array dalam instansi Vue menggunakan for-loop.
+v-on	: Menghubungkan peristiwa pada tag HTML ke ekspresi JavaScript atau metode instans Vue. Kita juga dapat mendefinisikan lebih spesifik bagaimana halaman kita harus bereaksi terhadap peristiwa tertentu dengan menggunakan pengubah peristiwa .
+v-model	: Digunakan dalam formulir HTML dengan tag seperti <form>, <input>dan <button>. Menciptakan ikatan dua arah antara elemen input dan properti data instans Vue.
+
+3. v-bind
+Direktif ini v-bind memungkinkan kita untuk mengikat atribut HTML ke data dalam instance Vue. Hal ini memudahkan untuk mengubah nilai atribut secara dinamis.
+Kita dapat menggunakan v-bind direktif ini untuk melakukan penataan gaya sebaris dan memodifikasi kelas secara dinamis. 
+
+Sintaksis : 
+<div v-bind:[attribute]="[Vue data]"></div>
+

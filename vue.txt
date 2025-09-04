@@ -1,29 +1,24 @@
-1. Menggunakan Vue dari CDN​
-Anda dapat menggunakan Vue langsung dari CDN melalui tag skrip:
+🔍 Apa itu Vue.js?
 
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+Vue.js adalah framework JavaScript untuk membangun antarmuka web yang interaktif dan responsif. Ringan, mudah dipelajari, dan cocok untuk pemula.
 
-Di sini kita menggunakan unpkg , tetapi Anda juga bisa menggunakan CDN apa pun yang menyediakan paket npm, 
-misalnya jsdelivr atau cdnjs . Tentu saja, Anda juga bisa mengunduh berkas ini dan menyediakannya sendiri.
-Saat menggunakan Vue dari CDN, tidak ada "langkah build" yang terlibat. Hal ini membuat pengaturan jauh lebih sederhana, dan cocok untuk meningkatkan HTML statis atau berintegrasi dengan kerangka kerja backend. 
-Namun, Anda tidak akan dapat menggunakan sintaks Komponen Berkas Tunggal (SFC).
+Vue adalah kerangka kerja JavaScript front-end yang ditulis dalam JavaScript.
+Kerangka kerja yang mirip dengan Vue adalah React dan Angular, tetapi Vue lebih ringan dan lebih mudah untuk memulai.
 
-2. Menggunakan Build Global​
-Tautan di atas memuat versi global Vue, tempat semua API tingkat atas diekspos sebagai properti pada Vueobjek global. Berikut contoh lengkap penggunaan versi global:
+🌟 Kenapa Vue?
 
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+Mudah dipelajari (dibanding Angular atau React)
 
-<div id="app">{{ message }}</div>
+Dokumentasi lengkap dan bahasa manusia
 
-<script>
-  const { createApp, ref } = Vue
+Komunitas aktif
 
-  createApp({
-    setup() {
-      const message = ref('Hello vue!')
-      return {
-        message
-      }
-    }
-  }).mount('#app')
-</script>
+Bisa digunakan dari proyek kecil sampai besar
+
+
+PEMBAHASAN :
+1. installasi, via cdn atau nodejs.
+2. interpolasi teks (menampilkan pesan)
+3. vue directives (terdiri dari v-bind, v-if, v-show, v-for, v-on, v-model)
+4. v-bind
+5. v-if

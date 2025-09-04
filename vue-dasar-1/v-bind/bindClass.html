@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>v-bind background-color</title>
+    <style>
+      #app > div {
+        width: 200px;
+        padding: 20px;
+        border: dashed black 1px;
+      }
+      /* penggunaan impClass dari property vue className */
+      .impClass {
+        background-color: lightcoral;
+      }
+
+      #app2 > div {
+        width: 200px;
+        padding: 20px;
+        border: dashed black 1px;
+      }
+      /* contoh v-bind:class juga dapat berupa objek, di mana nama kelas hanya
+      akan berlaku jika ditetapkan ke 'benar' */
+      .myClass {
+        background-color: blue;
+      }
+
+      #app3 > div {
+        width: 200px;
+        padding: 20px;
+        border: dashed black 1px;
+      }
+      /* v-bind:class adalah sebuah objek, kelas dapat ditetapkan
+      tergantung pada properti Vue */
+      .myClass2 {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contoh: 'v-bind' digunakan untuk mengubah kelas.</h1>
+
+    <p>
+      Peramban menetapkan nama kelas ke nilai yang disimpan dalam properti
+      'className' di dalam instance Vue.
+    </p>
+
+    <!-- Kita dapat menggunakannya v-bind untuk mengubah atribut kelas. -->
+    <!-- Nilai v-bind:class dapat berupa variabel -->
+    <!-- Namanya class diambil dari properti data Vue 'className'. jadi class mengambil nilai className dan className tersebut merupakan property data vue.-->
+    <div id="app">
+      <div v-bind:class="className">
+        Pentingnya divisualisasikan berdasarkan warna latar belakang
+      </div>
+    </div>
+
+    <hr />
+
+    <h1>
+      Nilai dari v-bind:class juga dapat berupa objek, di mana nama kelas hanya
+      akan berlaku jika ditetapkan ke 'benar'
+    </h1>
+
+    <p>
+      Atribut class ditetapkan atau tidak bergantung pada apakah kelas 'myClass'
+      disetel ke 'true' atau 'false'
+    </p>
+
+    <!-- 'v-bind' digunakan untuk menetapkan kelas dengan nilai true/false. -->
+    <!-- Peramban akan menetapkan kelas 'myClass' pada tag div ketika diatur ke 'true'.  -->
+    <div id="app2">
+      <div v-bind:class="{ myClass: true }">
+        Importance visualized by background color
+      </div>
+    </div>
+
+    <hr />
+
+    <h1>
+      Ketika nilai v-bind:class adalah sebuah objek, kelas dapat ditetapkan
+      tergantung pada properti Vue
+    </h1>
+
+    <p>
+      Atribut class ditetapkan tergantung pada properti 'isImportant', apakah
+      'true' atau 'false'
+    </p>
+
+    <!-- Contoh: 'v-bind' digunakan untuk mengubah kelas secara dinamis. -->
+    <!-- Peramban akan menetapkan kelas 'myClass2' pada tag div jika properti 'isImportant' bernilai 'true'. -->
+    <div id="app3">
+      <div v-bind:class="{ myClass2: isImportant }">
+        Importance visualized by background color
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vue -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            // impClass yang merupakan nilai dari property vue className ini, bisa kita gunakan di css.
+            className: "impClass",
+          };
+        },
+      });
+      app.mount("#app");
+
+      const app2 = Vue.createApp({
+        // The Vue instance is empty / Instance Vue kosong
+      });
+      app2.mount("#app2");
+
+      const app3 = Vue.createApp({
+        data() {
+          return {
+            isImportant: true,
+          };
+        },
+      });
+      app3.mount("#app3");
+    </script>
+  </body>
+</html>

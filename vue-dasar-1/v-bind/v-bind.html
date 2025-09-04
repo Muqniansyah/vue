@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>'v-bind' Contoh Image Source</title>
+    <style>
+      #app {
+        border: dashed black 1px;
+        width: 250px;
+        padding: 0 10px 10px 10px;
+      }
+
+      img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>'v-bind' Image Source Example</h1>
+
+    <div id="app">
+      <p>
+        Peramban menemukan nilai atribut 'src' dari instance Vue dengan
+        penggunaan 'v-bind'.
+      </p>
+      <!-- Nilai src atribut suatu <img>tag diambil dari properti data instance Vue 'url' -->
+      <!-- artinya jadi dia mengikat attribut src (attribut HTML pada img) dan mengambil nilai url dari instance vue. -->
+      <img v-bind:src="url" />
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vue -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            url: "background.jpg",
+          };
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
