@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue Events</title>
+    <style>
+      #app {
+        border: dashed black 1px;
+        width: 200px;
+        padding: 20px;
+      }
+      img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contoh: Hitung Rusa</h1>
+
+    <p>
+      Mari kita mulai dengan sebuah contoh untuk menunjukkan bagaimana kita
+      dapat mengklik tombol untuk menghitung rusa besar di hutan. Kita butuh:
+      Sebuah tombol, v-on pada tag 'button' untuk mendengarkan acara 'klik',
+      Kode untuk meningkatkan jumlah rusa besar, Properti (variabel) di instance
+      Vue untuk menyimpan jumlah rusa besar, Tanda kurung kurawal ganda {{}}
+      untuk menunjukkan peningkatan jumlah rusa besar.
+    </p>
+
+    <!-- Klik tombol untuk menghitung satu rusa lagi di hutan. Properti hitungan bertambah setiap kali tombol diklik. -->
+    <div id="app">
+      <img src="./rusa.jpg" width="770" height="549" />
+      <p>{{ "Hitungan rusa: " + count }}</p>
+      <button v-on:click="count++">Hitungan rusa</button>
+    </div>
+
+    <p>
+      Keterangan : count yang diambil pada paragraf/tag 'p' berasal dari data()
+      dalam instance Vue. lalu Pada tag 'button' dibawah paragraf itu berarti
+      saat tombol diklik, count bertambah 1. count++ itu adalah logika
+      JavaScript untuk menambah nilai 1 ke variabel count. count awalnya
+      bernilai 0 (dari data() Vue). count++ artinya sama dengan: count = count +
+      1. Setiap kali tombol diklik, Vue akan menjalankan logika yaitu nilai
+      count naik 1. Karena count adalah reactive property di Vue, tampilan HTML
+      yang menggunakan count otomatis ikut berubah tanpa kita update manual.
+      Reactive artinya: ketika suatu data berubah, tampilan (UI) yang terhubung
+      dengan data itu otomatis ikut berubah, tanpa perlu kamu update manual.
+    </p>
+
+    <p>
+      Catatan: Salah satu keuntungan Vue adalah jumlah rusa di tag 'p'
+      diperbarui secara otomatis. Dengan JavaScript biasa, kita perlu
+      memperbarui jumlah yang dilihat pengguna dengan baris kode tambahan.
+    </p>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vue -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            count: 0,
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

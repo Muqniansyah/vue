@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>v-show</title>
+    <style>
+      #app {
+        border: black dashed 1px;
+        width: 200px;
+        padding: 0 20px 20px 20px;
+      }
+      #app div {
+        padding: 20px;
+        background-color: lightgreen;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contoh: v-show Visibilitas Elemen Div</h1>
+
+    <div id="app">
+      <p>
+        Temukan properti data 'showDiv' di insctance vue, ubah menjadi 'false',
+        lalu jalankan kode tersebut lagi.
+      </p>
+      <!-- Tampilkan elemen <div> hanya jika properti showDiv diatur ke 'true'. -->
+      <div v-show="showDiv">Tag div ini dapat disembunyikan</div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vue -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            showDiv: true,
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

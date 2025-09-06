@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gunakan Nilai Pengembalian dari Fungsi</title>
+    <style>
+      #app {
+        border: dashed black 1px;
+        width: 160px;
+        padding: 0 20px;
+        font-weight: bold;
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      Daripada menggunakan pemeriksaan perbandingan dengan v-if direktif, kita
+      dapat menggunakan nilai pengembalian 'true' atau 'false' dari suatu fungsi
+    </h1>
+    <p>Contoh dengan pemeriksaan teks</p>
+
+    <p>
+      Dalam contoh ini 'v-if' menggunakan metode 'includes()' alih-alih operator
+      perbandingan.
+    </p>
+
+    <p>
+      Hapus 'pizza' dari properti 'teks' di dalam instance Vue, klik 'Jalankan'
+      dan lihat apa yang terjadi
+    </p>
+
+    <div id="app">
+      <!-- jadi di instance vue pada property data vue 'text' menggunakan metode includes()-->
+      <p v-if="text.includes('pizza')">Teks tersebut mengandung kata 'pizza'</p>
+      <p v-else>Kata 'pizza' tidak ditemukan dalam teks</p>
+    </div>
+
+    <p>
+      Jika suatu teks mengandung kata 'pizza', buat tag 'p' dengan pesan yang
+      sesuai. Metode 'includes()' adalah metode JavaScript asli yang memeriksa
+      apakah suatu teks mengandung kata-kata tertentu.
+    </p>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vue -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            text: "I like taco, pizza, Thai beef salad, pho soup and tagine.",
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

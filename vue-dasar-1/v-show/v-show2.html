@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>v-show vs. v-if</title>
+    <style>
+      #app {
+        border: black dashed 1px;
+        width: 80%;
+        padding: 0 20px 20px 20px;
+      }
+      #app div {
+        padding: 20px;
+        margin: 10px;
+        display: inline-block;
+        font-weight: bold;
+        border: solid black 1px;
+      }
+      #app p {
+        padding: 10px;
+        background-color: rgb(200, 246, 200);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contoh: v-show vs. v-if</h1>
+
+    <p>
+      Pada contoh di bawah ini v-show, dan v-if digunakan secara terpisah pada
+      dua elemen div yang berbeda, tetapi berdasarkan properti Vue yang sama.
+      Anda dapat membuka contoh dan memeriksa kode untuk melihat apakah v-show
+      elemen div tetap dipertahankan, dan hanya menetapkan properti tampilan CSS
+      ke 'none', tetapi v-if sebenarnya menghapus elemen div.
+    </p>
+
+    <p>
+      Tampilkan kedua elemen div hanya jika properti showDiv diatur ke 'true'.
+      Jika properti showDiv diatur ke 'false' dan kita memeriksa halaman contoh
+      dengan peramban, kita dapat melihat bahwa elemen div dengan v-if telah
+      dihancurkan, tetapi elemen div dengan v-show hanya memiliki properti
+      tampilan CSS yang diatur ke 'none'
+    </p>
+
+    <div id="app">
+      <p>
+        Atur properti data 'showDiv' ke 'false', lalu jalankan kembali kode
+        tersebut. Klik kanan elemen p hijau ini, pilih 'Inspect' atau 'Inspect
+        element' dan Anda dapat melihat bahwa elemen div dengan v-show masih
+        ada, hanya properti display CSS yang diatur ke 'none', dan div dengan
+        v-if dihilangkan.
+      </p>
+      <div v-show="showDiv">Tag div dengan v-show</div>
+      <div v-if="showDiv">Tag div dengan v-if</div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vue -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            showDiv: true,
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

@@ -22,3 +22,7 @@ PEMBAHASAN :
 3. vue directives (terdiri dari v-bind, v-if, v-show, v-for, v-on, v-model)
 4. v-bind
 5. v-if
+6. v-show
+7. v-for
+8. vue events
+9. v-on

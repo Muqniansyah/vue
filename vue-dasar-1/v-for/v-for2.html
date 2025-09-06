@@ -1,1 +1,104 @@
-<!-- ini yang index -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dapatkan indeksnya</title>
+    <style>
+      #app > div {
+        display: inline-block;
+        border: dashed black 1px;
+        padding: 10px;
+        background-color: lightgreen;
+      }
+      #app p {
+        font-weight: bold;
+        margin: 5px 0;
+      }
+
+      #app2 > div {
+        display: inline-block;
+        border: dashed black 1px;
+        padding: 10px;
+        background-color: lightgreen;
+      }
+      #app2 p {
+        font-weight: bold;
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contoh: Dapatkan indeks elemen array dengan 'v-for'</h1>
+    <p>
+      Nomor indeks elemen array bisa sangat berguna dalam for-loop JavaScript.
+      Untungnya, kita v-for juga bisa mendapatkan nomor indeks saat
+      menggunakannya di Vue. Untuk mendapatkan nomor indeks, v-for kita perlu
+      memberikan dua kata yang dipisahkan koma dalam tanda kurung: kata pertama
+      akan menjadi elemen array, dan kata kedua akan menjadi indeks elemen array
+      tersebut.
+    </p>
+    <p>
+      Direktif 'v-for' digunakan untuk mendapatkan indeks dan nama makanan dari
+      elemen di dalam array 'manyFoods' pada instance Vue.
+    </p>
+
+    <div id="app">
+      <div>
+        <!-- Menampilkan nomor indeks dan nama makanan elemen dalam array 'manyFoods' di instance Vue. -->
+        <p v-for="(x, index) in manyFoods">{{ index }}: "{{ x }}" <br /></p>
+      </div>
+    </div>
+
+    <br />
+    <hr />
+    <h1>
+      Kita juga dapat menampilkan indeks elemen array dan informasi dari elemen
+      array itu sendiri, jika elemen array tersebut adalah objek
+    </h1>
+    <p>
+      Direktif 'v-for' digunakan untuk mendapatkan indeks objek di dalam array
+      'manyFoods2', bersama dengan nama dan url setiap objek makanan.
+    </p>
+    <div id="app2">
+      <div>
+        <!-- Menampilkan nomor indeks elemen array dan teks dari objek dalam array 'manyFoods2' -->
+        <p v-for="(x, index) in manyFoods2">
+          {{ index }}: "{{ x.name }}", url: "{{ x.url }}" <br />
+        </p>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vues -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            manyFoods: [
+              "Burrito",
+              "Salad",
+              "Cake",
+              "Soup",
+              "Fish",
+              "Pizza",
+              "Rice",
+            ],
+          };
+        },
+      });
+      app.mount("#app");
+
+      const app2 = Vue.createApp({
+        data() {
+          return {
+            manyFoods2: [
+              { name: "muni-1", url: "gambar.jpeg" },
+              { name: "muni-2", url: "gambar.png" },
+            ],
+          };
+        },
+      });
+      app2.mount("#app2");
+    </script>
+  </body>
+</html>

@@ -1,7 +1,7 @@
-1. INTERPOLASI
+1.) INTERPOLASI
 menggunakan interpolasi teks , sintaksis Vue dengan kurung kurawal ganda {{ }} sebagai tempat penampung data.
 
-2. DIRECTIVES VUE
+2.) DIRECTIVES VUE
 Direktif Vue adalah atribut HTML khusus dengan awalan v-yang memberikan tag HTML fungsionalitas tambahan.
 Direktif Vue terhubung ke instansi Vue untuk membuat antarmuka pengguna yang dinamis dan reaktif.
 Dengan Vue, membuat halaman responsif jauh lebih mudah dan membutuhkan lebih sedikit kode dibandingkan dengan metode JavaScript tradisional.
@@ -9,16 +9,119 @@ Dengan Vue, membuat halaman responsif jauh lebih mudah dan membutuhkan lebih sed
 berbagai directives vue :
 
 v-bind	: Menghubungkan atribut dalam tag HTML ke variabel data di dalam instansi Vue.
-v-if	: Membuat tag HTML berdasarkan suatu kondisi. Direktif v-else-ifdan v-elsedigunakan bersama dengan v-ifdirektif.
+v-if	: Membuat tag HTML berdasarkan suatu kondisi. Direktif v-else-if dan v-else digunakan bersama dengan v-if direktif.
 v-show	: Menentukan apakah elemen HTML harus terlihat atau tidak tergantung pada suatu kondisi.
 v-for	: Membuat daftar tag berdasarkan array dalam instansi Vue menggunakan for-loop.
 v-on	: Menghubungkan peristiwa pada tag HTML ke ekspresi JavaScript atau metode instans Vue. Kita juga dapat mendefinisikan lebih spesifik bagaimana halaman kita harus bereaksi terhadap peristiwa tertentu dengan menggunakan pengubah peristiwa .
 v-model	: Digunakan dalam formulir HTML dengan tag seperti <form>, <input>dan <button>. Menciptakan ikatan dua arah antara elemen input dan properti data instans Vue.
 
-3. v-bind
+3.) v-bind
 Direktif ini v-bind memungkinkan kita untuk mengikat atribut HTML ke data dalam instance Vue. Hal ini memudahkan untuk mengubah nilai atribut secara dinamis.
 Kita dapat menggunakan v-bind direktif ini untuk melakukan penataan gaya sebaris dan memodifikasi kelas secara dinamis. 
 
 Sintaksis : 
 <div v-bind:[attribute]="[Vue data]"></div>
 
+4.) v-if 
+Jauh lebih mudah untuk membuat elemen HTML bergantung pada suatu kondisi di Vue dengan v-if daripada dengan JavaScript biasa.
+Dengan Vue, Anda tinggal menulis pernyataan if langsung di elemen HTML yang ingin Anda buat secara kondisional. Semudah itu.
+
+- Rendering Bersyarat (Conditional Rendering) di Vue
+Conditional Rendering dalam Vue dilakukan dengan menggunakan direktif v-if, v-else-ifdan v-else.
+
+- Kondisi(conditions) di Vue
+Suatu kondisi, atau "pernyataan jika", adalah sesuatu yang salah satu true atau false.
+Suatu kondisi sering kali merupakan pemeriksaan perbandingan antara dua nilai seperti pada contoh di atas untuk melihat apakah satu nilai lebih besar dari yang lain.
+a. Kami menggunakan operator perbandingan seperti <, >= atau !== untuk melakukan pemeriksaan tersebut.
+b. Pemeriksaan perbandingan juga dapat dikombinasikan dengan operator logika seperti && atau ||.
+
+- Directives for Conditional Rendering (Direktif untuk Rendering Bersyarat)
+v-if	    : Dapat digunakan sendiri, atau dengan v-else-if dan/atau v-else. Jika kondisi di dalamnya v-if'benar', v-else-if atau v-else tidak dipertimbangkan.
+v-else-if	: Harus digunakan setelah v-if atau yang lain v-else-if. Jika kondisi di dalamnya v-else-if"benar", v-else-if atau v-else yang muncul setelahnya, tidak dipertimbangkan.
+v-else	    : Bagian ini akan terjadi jika bagian pertama pernyataan if bernilai salah. Harus ditempatkan di akhir pernyataan if, setelah v-if dan v-else-if.
+
+Dengan Vue kita sekarang dapat menulis kode yang membuat elemen dalam kondisi tertentu dengan cara yang jauh lebih mudah daripada JavaScript tradisional.
+
+5.) v-show
+Pelajari cara membuat elemen terlihat atau tidak dengan v-show.
+v-show mudah digunakan karena kondisinya ditulis langsung di atribut tag HTML.
+
+- Conditional Visibility (Visibilitas Bersyarat)
+Direktif v-show menyembunyikan elemen saat kondisinya 'salah' dengan menetapkan nilai properti CSS 'display' ke 'none'.
+Setelah menulis v-showsebagai atribut HTML, kita harus memberikan kondisi untuk memutuskan apakah tag tersebut terlihat atau tidak.
+
+Sintaksis :
+<div v-show="showDiv">Tag div ini dapat disembunyikan</div>
+
+Pada kode di atas, 'showDiv' merepresentasikan properti data Vue boolean dengan nilai properti 'true' atau 'false'. Jika 'showDiv' bernilai 'true', tag div akan ditampilkan, dan jika bernilai 'false', tag div tidak akan ditampilkan.
+
+- v-showmelawanv-if
+Perbedaan antara v-show dan v-ifadalah bahwa v-if menciptakan (merender) elemen tergantung pada kondisinya, tetapi dengan v-show elemen yang sudah dibuat, v-show hanya mengubah visibilitasnya.
+Oleh karena itu, lebih baik digunakan v-showsaat mengalihkan visibilitas suatu objek, karena lebih mudah dilakukan oleh browser, dan dapat menghasilkan respons yang lebih cepat dan pengalaman pengguna yang lebih baik.
+Alasan menggunakan v-if daripada v-show adalah karena v-if dapat digunakan dengan v-else-if dan v-else.
+
+6.) v-for
+Dengan JavaScript normal, Anda mungkin ingin membuat elemen HTML berdasarkan array. Anda menggunakan for-loop, dan di dalamnya Anda perlu membuat elemen, menyesuaikannya, lalu menambahkan setiap elemen ke halaman Anda. Elemen-elemen ini tidak akan bereaksi terhadap perubahan array.
+Dengan Vue, Anda mulai dengan elemen HTML yang ingin Anda buat menjadi daftar, dengan v-foratribut, merujuk ke array di dalam instance Vue, dan biarkan Vue mengurus sisanya. Elemen yang dibuat dengan Vue v-forakan otomatis diperbarui ketika array berubah.
+
+- List Rendering (Rendering Daftar)
+Pembuatan daftar di Vue dilakukan dengan menggunakan v-for direktif, sehingga beberapa elemen HTML dibuat dengan for-loop.
+
+- Dalam Vue, v-for pakai sintaks mirip bahasa natural:
+v-for="item in items"
+
+Artinya: "untuk setiap item di dalam items".
+Jadi in itu bagian dari sintaks resmi Vue, bukan JavaScript murni.
+
+- Apakah in wajib? in (atau of) wajib ada.
+Kalau tidak, Vue tidak tahu harus loop dari mana.
+
+contoh :
+<li v-for="x in banyakMakanan">{{ x }}</li>
+<li v-for="makanan of banyakMakanan">{{ makanan }}</li> <!-- 'of' juga bisa -->
+
+- in berasal dari mana?
+Vue ambil inspirasi dari sintaks JavaScript. Di JavaScript, kita punya:
+for...in → looping key/index
+for...of → looping value
+
+Vue mengizinkan keduanya: in dan of, hasilnya sama-sama looping array.
+
+7.) vue events
+Penanganan peristiwa (Event handling) dalam Vue dilakukan dengan v-on direktif, sehingga kita dapat membuat sesuatu terjadi ketika misalnya sebuah tombol diklik.
+Penanganan peristiwa (Event handling) adalah saat elemen HTML diatur untuk menjalankan kode tertentu saat peristiwa tertentu terjadi.
+Events di Vue mudah digunakan dan akan membuat halaman kita benar-benar responsif.
+Vue Methods adalah kode yang dapat diatur untuk dijalankan saat suatu peristiwa terjadi.
+Dengan v-on modifiers/pengubah Anda dapat menjelaskan lebih rinci cara bereaksi terhadap suatu kejadian.
+
+- events
+Ada banyak events yang dapat kita gunakan sebagai pemicu untuk menjalankan kode, di antara yang paling umum adalah :
+'click', 'mouseover', 'mouseout', 'keydown' and 'input'.
+
+- 'v-on'
+Direktif ini v-on memungkinkan kita membuat halaman yang merespons apa yang dilakukan pengguna.
+Vue v-on bekerja dengan memberi tahu peramban peristiwa apa yang harus didengarkan, dan apa yang harus dilakukan saat peristiwa itu terjadi.
+
+- Methods
+Jika kita ingin menjalankan kode yang lebih kompleks saat suatu peristiwa terjadi, kita dapat meletakkan kode tersebut dalam method Vue dan merujuk ke method ini dari atribut HTML, seperti ini:
+<p v-on:click="changeColor">Click me</p>
+
+- Event Modifiers (pengubah peristiwa)
+Selain v-on methods Vue, kita dapat menggunakan sesuatu yang disebut Event Modifiers untuk mengubah suatu peristiwa sehingga, 
+misalnya, hanya terjadi satu kali setelah halaman dimuat, atau mengubah peristiwa seperti 'submit' untuk mencegah formulir dikirimkan.
+
+- Seperti yang bisa kita lihat, ada tiga teknik yang perlu kita pelajari untuk menggunakan event di Vue:
+1. v-on Direktif Vue (The Vue v-on directive)
+2. Metode Vue (Vue Methods)
+3. v-on Pengubah Vue (Vue v-on modifiers)
+
+8) v-on
+Seperti penanganan peristiwa dalam JavaScript biasa, v-onarahan dalam Vue memberi tahu browser:
+peristiwa mana yang akan didengarkan ('click', 'keydown', 'mouseover', dll.)
+apa yang harus dilakukan ketika peristiwa itu terjadi.
+
+- onclick Event
+Direktif v-on memungkinkan kita melakukan tindakan berdasarkan kejadian tertentu.
+a. Digunakan v-on:click untuk melakukan tindakan saat elemen diklik.
+b. Digunakan v-on:inputuntuk melakukan tindakan saat elemen menerima input, seperti penekanan tombol di dalam kolom teks.
+c. Digunakan v-on:mousemove untuk melakukan tindakan saat penunjuk tetikus bergerak di atas suatu elemen.

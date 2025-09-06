@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>v-for</title>
+    <style>
+      #app > div {
+        border: solid black 1px;
+        width: 80%;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      img {
+        width: 70px;
+        margin: 10px;
+      }
+
+      #app2 > div {
+        border: solid black 1px;
+        width: 80%;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      #app3 > div {
+        border: solid black 1px;
+        width: 80%;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      figure {
+        width: 80px;
+        padding: 10px;
+        margin: 10px;
+        background-color: lightskyblue;
+        border-radius: 5px;
+      }
+
+      figcaption {
+        text-align: center;
+      }
+
+      #app3 > div > img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contoh: 'v-for' untuk membuat li-tag</h1>
+
+    <p>
+      Dalam contoh ini, 'v-for' membuat tag 'li' dengan nama makanan untuk
+      setiap item makanan dalam array instance Vue.
+    </p>
+
+    <div id="app">
+      <ol>
+        <!-- Menampilkan daftar berdasarkan item suatu array. -->
+        <li v-for="makanan in banyakMakanan">{{ makanan }}</li>
+      </ol>
+    </div>
+
+    <h2>penjelasan :</h2>
+    <p>
+      makanan in banyakMakanan artinya: untuk setiap elemen (makanan) yang ada
+      di dalam array banyakMakanan, buatkan 'li'.
+    </p>
+    <p>
+      makanan adalah nama variabel sementara untuk mewakili tiap item dalam
+      array saat loop berjalan. Bisa kamu ganti namanya sesuka hati. misalnya:
+    </p>
+    <p>v-for="food in banyakMakanan">{{ food }}</p>
+    <p>Hasilnya sama saja, cuma lebih jelas karena namanya sesuai konteks.</p>
+    <p>
+      pada {{ makanan }}, yaitu Sintaks {{ ... }} disebut interpolasi di Vue.
+      Itu digunakan untuk menampilkan nilai dari variabel ke dalam HTML. Jadi di
+      setiap loop, {{ makanan }} akan menampilkan elemen array pada posisi
+      tersebut.
+    </p>
+
+    <br />
+    <hr />
+
+    <h1>Melakukan Loop Melalui Array</h1>
+    <p>
+      Lakukan pengulangan melalui array untuk menampilkan gambar yang berbeda.
+      contoh ini Menampilkan gambar makanan, berdasarkan array dalam instance
+      Vue.
+    </p>
+    <p>
+      Direktif 'v-for' digunakan untuk membuat gambar berdasarkan array
+      'manyFoods' dalam instance Vue.
+    </p>
+    <!-- Contoh 'v-for' untuk membuat gambar -->
+    <div id="app2">
+      <div>
+        <img v-for="x in manyFoods" v-bind:src="x" />
+      </div>
+    </div>
+
+    <br />
+    <hr />
+
+    <h1>Loop Melalui Array Objek</h1>
+    <p>
+      Melakukan pengulangan melalui serangkaian objek dan menampilkan properti
+      objek. contoh ini Menampilkan gambar dan nama berbagai jenis makanan,
+      berdasarkan array dalam instance Vue.
+    </p>
+    <p>
+      Direktif 'v-for' digunakan untuk membuat gambar dan teks berdasarkan array
+      'manyFoods2' dalam instance Vue.
+    </p>
+    <!-- Contoh 'v-for' untuk membuat gambar dan teks -->
+    <div id="app3">
+      <div>
+        <figure v-for="x in manyFoods2">
+          <img v-bind:src="x.url" />
+          <figcaption>{{ x.name }}</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vue -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            banyakMakanan: [
+              "Burrito",
+              "Salad",
+              "Cake",
+              "Soup",
+              "Fish",
+              "Pizza",
+              "Rice",
+            ],
+          };
+        },
+      });
+      app.mount("#app");
+
+      const app2 = Vue.createApp({
+        data() {
+          return {
+            // contoh dari Melakukan Loop Melalui Array
+            manyFoods: ["gambar.jpeg", "gambar.png"],
+          };
+        },
+      });
+      app2.mount("#app2");
+
+      const app3 = Vue.createApp({
+        data() {
+          return {
+            // contoh dari Loop Melalui Array Objek
+            manyFoods2: [
+              { name: "muni-1", url: "gambar.jpeg" },
+              { name: "muni-2", url: "gambar.png" },
+            ],
+          };
+        },
+      });
+      app3.mount("#app3");
+    </script>
+  </body>
+</html>

@@ -1,1 +1,148 @@
-<!-- semua event dan shorthand -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>v-on</title>
+    <style>
+      #app {
+        border: dashed black 1px;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+
+      #app > button {
+        display: block;
+        margin: auto;
+      }
+
+      #lightDiv {
+        position: relative;
+        width: 150px;
+        height: 150px;
+      }
+
+      #lightDiv > img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      #lightDiv > div {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+        background-color: yellow;
+      }
+
+      #app2 {
+        border: dashed black 1px;
+        width: 200px;
+        padding: 20px;
+      }
+
+      #app3 {
+        border: dashed black 1px;
+        width: 350px;
+        padding: 0 20px;
+      }
+      #app3 > div {
+        width: 200px;
+        height: 80px;
+      }
+      #app3 span {
+        font-weight: bold;
+        font-family: "Courier New", Courier, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contoh : Saklar Lampu</h1>
+    <p>
+      Direktif v-on digunakan pada tag tombol untuk mendengarkan peristiwa
+      'click'. Ketika peristiwa 'click' terjadi, properti data 'lightOn' diubah
+      antara 'benar' dan 'salah', sehingga div kuning di belakang bola lampu
+      terlihat/tersembunyi.
+    </p>
+
+    <div id="app">
+      <div id="lightDiv">
+        <div v-show="lightOn"></div>
+        <img src="lampu.png" />
+      </div>
+      <button v-on:click=" lightOn =! lightOn ">Switch light</button>
+    </div>
+
+    <br />
+    <hr />
+
+    <h1>Hitung jumlah penekanan tombol untuk bidang teks input</h1>
+    <!-- Contoh: Hitung Peristiwa Input -->
+    <div id="app2">
+      <input
+        type="text"
+        v-on:input="inpCount++"
+        placeholder="Start writing.."
+      />
+      <p>{{ 'Input events occured: '+inpCount }}</p>
+    </div>
+
+    <br />
+    <hr />
+
+    <h1>
+      Ubah warna latar belakang elemen 'div' setiap kali penunjuk tetikus (mouse
+      pointer) bergerak di atasnya
+    </h1>
+
+    <!-- Contoh: Ubah Warna -->
+    <div id="app3">
+      <p>
+        Arahkan kursor tetikus ke kotak di bawah ini untuk mengubah warna latar
+        belakang secara acak dengan kode warna HSL.
+      </p>
+      <div
+        v-on:mousemove=" colorVal = Math.floor(Math.random()*360) "
+        v-bind:style=" {backgroundColor: 'hsl('+colorVal+',60%,60%)'} "
+      ></div>
+      <p>
+        <span
+          >backgroundColor: hsl(<strong>{{ colorVal }}</strong>, 80%, 80%)</span
+        >
+      </p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vue -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            lightOn: false,
+          };
+        },
+      });
+      app.mount("#app");
+
+      const app2 = Vue.createApp({
+        data() {
+          return {
+            inpCount: 0,
+          };
+        },
+      });
+      app2.mount("#app2");
+
+      const app3 = Vue.createApp({
+        data() {
+          return {
+            colorVal: 50,
+          };
+        },
+      });
+      app3.mount("#app3");
+    </script>
+  </body>
+</html>

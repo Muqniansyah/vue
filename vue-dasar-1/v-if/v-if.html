@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>vue-if</title>
+    <style>
+      #app {
+        border: dashed black 1px;
+        width: 130px;
+        padding-left: 20px;
+        font-weight: bold;
+        background-color: lightgreen;
+      }
+
+      #app2 {
+        border: dashed black 1px;
+        width: 130px;
+        padding-left: 20px;
+        font-weight: bold;
+        background-color: lightgreen;
+      }
+
+      #app3 {
+        border: dashed black 1px;
+        width: 130px;
+        padding-left: 20px;
+        font-weight: bold;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contoh Rendering bersyarat dengan 'v-if' dan 'v-else'</h1>
+    <p>
+      Rendering bersyarat terjadi saat elemen HTML dibuat hanya jika kondisinya
+      benar, yaitu membuat teks "Tersedia" jika variabelnya 'benar', atau 'Tidak
+      tersedia' jika variabelnya 'salah'.
+    </p>
+    <p>
+      Coba ubah nilai 'typewritersInStock' di instance Vue dari 'true' menjadi
+      'false' dan jalankan kodenya lagi.
+    </p>
+
+    <!-- Tulis pesan yang berbeda-beda tergantung pada apakah ada mesin ketik yang tersedia atau tidak -->
+    <div id="app">
+      <p v-if="typewritersInStock">in stock</p>
+      <p v-else>not in stock</p>
+    </div>
+
+    <p>
+      Coba ubah nilai 'typewriterCount' di instance Vue menjadi '0' dan jalankan
+      kode lagi.
+    </p>
+
+    <div id="app2">
+      <p v-if="typewriterCount>0">in stock</p>
+      <p v-else>not in stock</p>
+    </div>
+
+    <h1>Contoh dengan 'v-if', 'v-else-if' and 'v-else'</h1>
+    <p>
+      kita dapat memperluas contoh sebelumnya v-else-if sehingga pengguna dapat
+      melihat 'Tersedia' (In stock), 'Hanya tersisa sedikit!' (Very few left!)
+      atau 'Kehabisan stok'(Out of stock)
+    </p>
+
+    <p>
+      Coba ubah nilai 'typewriter' di instance Vue menjadi '0' atau '5' dan
+      jalankan kode lagi.
+    </p>
+
+    <div id="app3">
+      <p v-if="typewriter>3">In stock</p>
+      <p v-else-if="typewriter>0">Very few left!</p>
+      <p v-else>Not in stock</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- instance vue -->
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            typewritersInStock: true,
+          };
+        },
+      });
+      app.mount("#app");
+
+      const app2 = Vue.createApp({
+        data() {
+          return {
+            // contoh ke dua
+            typewriterCount: 3,
+          };
+        },
+      });
+      app2.mount("#app2");
+
+      const app3 = Vue.createApp({
+        data() {
+          return {
+            // contoh ke tiga
+            typewriter: 3,
+          };
+        },
+      });
+      app3.mount("#app3");
+    </script>
+  </body>
+</html>
